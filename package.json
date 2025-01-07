@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "bun run --watch src/server/index.ts",
     "start": "bun run src/server/index.ts",
-    "build": "bun build ./src/client/index.tsx --outdir ./dist"
+    "build": "bun build ./src/client/index.tsx --outdir ./dist",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "bun run src/db/migrate.ts",
+    "db:push": "drizzle-kit push:pg",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -14,12 +18,14 @@
     "htmx.org": "^1.9.10",
     "@elysiajs/html": "^0.8.0",
     "elysia": "^0.8.17",
-    "postgres": "^3.4.3"
+    "postgres": "^3.4.3",
+    "drizzle-orm": "^0.29.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "typescript": "^5.0.0",
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "drizzle-kit": "^0.20.14"
   }
 }
